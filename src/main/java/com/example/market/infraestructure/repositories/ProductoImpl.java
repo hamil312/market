@@ -1,6 +1,7 @@
 package com.example.market.infraestructure.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,4 +25,9 @@ public class ProductoImpl implements IProduct  {
         List<Producto> productos = productoRepository.findAll();
         return productoMapper.toProductsDTO(productos);
     }
+
+    /*public ProductDTO getById(Long id){
+        Optional<Producto> producto = productoRepository.findById(id);
+        return  productoMapper.toProductDTO(producto);
+    }*/
 }

@@ -17,4 +17,5 @@ public class ProductService {
     public List<ProductDTO> getAll() {
         return productImpl.getAll();
     }
+    // public ProductDTO getById(Long id){ return productImpl.getById(id); }
 }

@@ -21,6 +21,11 @@ public class ProductoController {
     public List<ProductDTO> obtenerProductos() {
         return productService.getAll();
     }
+
+    /*@GetMapping
+    public ProductDTO obtenerProducto(@RequestParam Long id){
+        return productService.getById(id);
+    }*/
     
 
 }

@@ -1,9 +1,12 @@
 package com.example.market.infraestructure.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +20,8 @@ public class Producto {
     private String descripcion;
     private double precio;
     private int stock;
+    @OneToMany(mappedBy = "productos")
+    private Set<OrdenItem> ordenItems;
 
     public Producto() {
         
@@ -60,6 +65,14 @@ public class Producto {
 
     public void setStock(int stock) {
         this.stock = stock;
+    }
+
+    public Set<OrdenItem> getOrdenItems() {
+        return ordenItems;
+    }
+
+    public void setOrdenItems(Set<OrdenItem> ordeneItems) {
+        this.ordenItems = ordeneItems;
     }
 
     

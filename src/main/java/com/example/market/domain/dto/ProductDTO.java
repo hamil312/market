@@ -1,5 +1,9 @@
 package com.example.market.domain.dto;
 
+import java.util.Set;
+
+import com.example.market.infraestructure.entity.OrdenItem;
+
 public class ProductDTO {
     
     private Long id;
@@ -7,6 +11,7 @@ public class ProductDTO {
     private String description;
     private double price;
     private int amount;
+    private Set<OrdenItem> orderItems;
 
     public ProductDTO() {
         
@@ -57,6 +62,14 @@ public class ProductDTO {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public Set<OrdenItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Set<OrdenItem> ordenItems) {
+        this.orderItems = ordenItems;
     }
 
     

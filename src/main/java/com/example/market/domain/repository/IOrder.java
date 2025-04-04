@@ -8,6 +8,6 @@ public interface IOrder {
     List<OrderDTO> getAllOrders();
     OrderDTO getOrderById(Long id);
     void saveOrder(OrderDTO order);
-    void updateOrder(OrderDTO order);
+    void updateOrder(Long id, OrderDTO order);
     void deleteOrder(Long id);
 }

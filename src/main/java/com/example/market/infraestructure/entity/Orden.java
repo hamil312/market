@@ -1,5 +1,7 @@
 package com.example.market.infraestructure.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -13,8 +15,10 @@ public class Orden {
     private double total;
     private String estado;
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "idcliente", nullable = false)
     private Long idCliente;
+    @OneToMany(mappedBy = "ordenes")
+    private Set<OrdenItem> ordenItems;
 
     public Orden() {
 
@@ -56,6 +60,14 @@ public class Orden {
     }
     public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public Set<OrdenItem> getOrdenItems() {
+        return ordenItems;
+    }
+
+    public void setOrdenItems(Set<OrdenItem> ordenItems) {
+        this.ordenItems = ordenItems;
     }
 
     

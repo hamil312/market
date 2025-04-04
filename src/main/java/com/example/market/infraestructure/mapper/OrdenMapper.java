@@ -19,6 +19,7 @@ public interface OrdenMapper {
         @Mapping(source = "total", target = "total"),
         @Mapping(source = "estado", target = "status"),
         @Mapping(source = "idCliente", target = "idClient"),
+        @Mapping(source = "ordenItems", target = "orderItems"),
     })
     OrderDTO toOrderDTO(Orden orden);
     List<OrderDTO> toOrdersDTO(List<Orden> ordenes);

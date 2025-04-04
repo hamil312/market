@@ -20,6 +20,16 @@ public class Cliente {
     @OneToMany(mappedBy = "clientes")
     private Set<Orden> ordenes;
 
+    public Cliente(String nombre, String correo, String direccion, int telefono) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Cliente() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -58,5 +68,13 @@ public class Cliente {
 
     public void setTelefono(int telefono) {
         this.telefono = telefono;
+    }
+
+    public Set<Orden> getOrdenes() {
+        return ordenes;
+    }
+
+    public void setOrdenes(Set<Orden> ordenes) {
+        this.ordenes = ordenes;
     }
 }

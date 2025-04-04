@@ -1,6 +1,8 @@
 package com.example.market.infraestructure.entity;
 
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity

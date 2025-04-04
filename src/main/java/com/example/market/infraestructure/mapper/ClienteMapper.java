@@ -1,9 +1,7 @@
 package com.example.market.infraestructure.mapper;
 
 import com.example.market.domain.dto.ClientDTO;
-import com.example.market.domain.dto.ProductDTO;
 import com.example.market.infraestructure.entity.Cliente;
-import com.example.market.infraestructure.entity.Producto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

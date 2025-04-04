@@ -13,12 +13,12 @@ public class OrdenItem {
     private double precioUnitario;
     @ManyToOne
     @JoinColumn(name = "productoid", nullable = false)
-    private Long producto;
+    private Producto producto;
     @ManyToOne
     @JoinColumn(name = "ordenid", nullable = false)
-    private Long orden;
+    private Orden orden;
     
-    public OrdenItem(int cantidad, double precioUnitario, Long producto, Long orden) {
+    public OrdenItem(int cantidad, double precioUnitario, Producto producto, Orden orden) {
         this.cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         this.producto = producto;
@@ -46,16 +46,16 @@ public class OrdenItem {
     public void setPrecioUnitario(double precioUnitario) {
         this.precioUnitario = precioUnitario;
     }
-    public Long getProducto() {
+    public Producto getProducto() {
         return producto;
     }
-    public void setProducto(Long producto) {
+    public void setProducto(Producto producto) {
         this.producto = producto;
     }
-    public Long getOrden() {
+    public Orden getOrden() {
         return orden;
     }
-    public void setOrden(Long orden) {
+    public void setOrden(Orden orden) {
         this.orden = orden;
     }
 

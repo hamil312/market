@@ -1,17 +1,20 @@
 package com.example.market.domain.dto;
 
+import com.example.market.infraestructure.entity.Orden;
+import com.example.market.infraestructure.entity.Producto;
+
 public class OrderItemDTO {
     private Long id;
     private int quantity;
     private double unitPrice;
-    private Long productId;
-    private Long orderId;
+    private Producto product;
+    private Orden order;
 
-    public OrderItemDTO(int quantity, double unitPrice, Long productId, Long orderId) {
+    public OrderItemDTO(int quantity, double unitPrice, Producto product, Orden order) {
         this.quantity = quantity;
         this.unitPrice = unitPrice;
-        this.productId = productId;
-        this.orderId = orderId;
+        this.product = product;
+        this.order = order;
     }
 
     public OrderItemDTO() {
@@ -41,19 +44,19 @@ public class OrderItemDTO {
         this.unitPrice = unitPrice;
     }
 
-    public Long getProductId() {
-        return productId;
+    public Producto getProduct() {
+        return product;
     }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
+    public void setProduct(Producto product) {
+        this.product = product;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Orden getOrder() {
+        return order;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setOrder(Orden order) {
+        this.order = order;
     }
 }

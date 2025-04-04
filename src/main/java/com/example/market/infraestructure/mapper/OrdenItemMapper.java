@@ -18,8 +18,8 @@ public interface OrdenItemMapper {
         @Mapping(source = "id", target = "id"),
         @Mapping(source = "cantidad", target = "quantity"),
         @Mapping(source = "precioUnitario", target = "unitPrice"),
-        @Mapping(source = "producto", target = "productId"),
-        @Mapping(source = "orden", target = "orderId"),
+        @Mapping(source = "producto", target = "product"),
+        @Mapping(source = "orden", target = "order"),
     })
     OrderItemDTO toOrderItemDTO(OrdenItem ordenItem);
     List<OrderItemDTO> toOrdersItemsDTO(List<OrdenItem> ordenItems);

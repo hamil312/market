@@ -17,7 +17,7 @@ public class Cliente {
     private String direccion;
     private int telefono;
 
-    @OneToMany(mappedBy = "clientes")
+    @OneToMany(mappedBy = "cliente")
     private Set<Orden> ordenes;
 
     public Cliente(String nombre, String correo, String direccion, int telefono) {

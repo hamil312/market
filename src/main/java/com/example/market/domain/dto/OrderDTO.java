@@ -2,6 +2,7 @@ package com.example.market.domain.dto;
 
 import java.util.Set;
 
+import com.example.market.infraestructure.entity.Cliente;
 import com.example.market.infraestructure.entity.OrdenItem;
 
 public class OrderDTO {
@@ -10,18 +11,18 @@ public class OrderDTO {
     private String date;
     private double total;
     private String status;
-    private Long idClient;
+    private Cliente client;
     private Set<OrdenItem> orderItems;
 
     public OrderDTO() {
         
     }
 
-    public OrderDTO(String date, double total, String status, Long idClient) {
+    public OrderDTO(String date, double total, String status, Cliente client) {
         this.date = date;
         this.total = total;
         this.status = status;
-        this.idClient = idClient;
+        this.client = client;
     }
 
     public Long getId() {
@@ -56,12 +57,12 @@ public class OrderDTO {
         this.status = status;
     }
 
-    public Long getIdClient() {
-        return idClient;
+    public Cliente getClient() {
+        return client;
     }
 
-    public void setIdClient(Long idClient) {
-        this.idClient = idClient;
+    public void setClient(Cliente client) {
+        this.client = client;
     }
 
     public Set<OrdenItem> getOrderItems() {

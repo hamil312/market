@@ -16,19 +16,19 @@ public class Orden {
     private String estado;
     @ManyToOne
     @JoinColumn(name = "idcliente", nullable = false)
-    private Long idCliente;
-    @OneToMany(mappedBy = "ordenes")
+    private Cliente cliente;
+    @OneToMany(mappedBy = "orden")
     private Set<OrdenItem> ordenItems;
 
     public Orden() {
 
     }
     
-    public Orden(String fecha, double total, String estado, Long idCliente) {
+    public Orden(String fecha, double total, String estado, Cliente cliente) {
         this.fecha = fecha;
         this.total = total;
         this.estado = estado;
-        this.idCliente = idCliente;
+        this.cliente = cliente;
     }
 
     public Long getId() {
@@ -55,11 +55,11 @@ public class Orden {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public Long getIdCliente() {
-        return idCliente;
+    public Cliente getCliente() {
+        return cliente;
     }
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Set<OrdenItem> getOrdenItems() {

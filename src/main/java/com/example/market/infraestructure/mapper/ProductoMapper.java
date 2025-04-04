@@ -1,7 +1,6 @@
 package com.example.market.infraestructure.mapper;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
@@ -20,8 +19,9 @@ public interface ProductoMapper {
         @Mapping(source = "descripcion", target = "description"),
         @Mapping(source = "precio", target = "price"),
         @Mapping(source = "stock", target ="amount")
+
     })
-    ProductDTO toProductDTO(Optional<Producto> producto);
+    ProductDTO toProductDTO(Producto producto);
     List<ProductDTO> toProductsDTO(List<Producto> productos);
 
     @InheritInverseConfiguration

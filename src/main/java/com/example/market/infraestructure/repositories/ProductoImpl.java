@@ -20,7 +20,7 @@ public class ProductoImpl implements IProduct  {
     @Autowired
     private ProductoMapper productoMapper;
 
-    public List<ProductDTO> getAll() {
+    public List<ProductDTO> getAllProducts() {
         List<Producto> productos = productoRepository.findAll();
         return productoMapper.toProductsDTO(productos);
     }

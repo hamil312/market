@@ -15,7 +15,7 @@ public class ProductService {
     private ProductoImpl productImpl;
 
     public List<ProductDTO> getAll() {
-        return productImpl.getAll();
+        return productImpl.getAllProducts();
     }
     // public ProductDTO getById(Long id){ return productImpl.getById(id); }
 }

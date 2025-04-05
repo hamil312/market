@@ -10,8 +10,7 @@ public class ClientDTO {
     public ClientDTO() {
     }
 
-    public ClientDTO(Long id, String name, String email, String address, int phoneNumber) {
-        this.id = id;
+    public ClientDTO(String name, String email, String address, int phoneNumber) {
         this.name = name;
         this.email = email;
         this.address = address;

@@ -17,6 +17,17 @@ public class Pago {
     @JoinColumn(name = "ordenid", nullable = false)
     private Orden orden;
 
+    public Pago() {
+    }
+
+    public Pago(int fechaPago, double monto, String metodo, String estado, Orden orden) {
+        this.fechaPago = fechaPago;
+        this.monto = monto;
+        this.metodo = metodo;
+        this.estado = estado;
+        this.orden = orden;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

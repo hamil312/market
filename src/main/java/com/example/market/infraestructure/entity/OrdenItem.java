@@ -12,10 +12,10 @@ public class OrdenItem {
     private int cantidad;
     private double precioUnitario;
     @ManyToOne
-    @JoinColumn(name = "productoid", nullable = false)
+    @JoinColumn(name = "producto", nullable = false)
     private Producto producto;
     @ManyToOne
-    @JoinColumn(name = "ordenid", nullable = false)
+    @JoinColumn(name = "orden", nullable = false)
     private Orden orden;
     
     public OrdenItem(int cantidad, double precioUnitario, Producto producto, Orden orden) {

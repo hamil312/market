@@ -15,7 +15,7 @@ public class Orden {
     private double total;
     private String estado;
     @ManyToOne
-    @JoinColumn(name = "idcliente", nullable = false)
+    @JoinColumn(name = "cliente", nullable = false)
     private Cliente cliente;
     @OneToMany(mappedBy = "orden")
     private Set<OrdenItem> ordenItems;

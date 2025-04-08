@@ -15,7 +15,7 @@ public class Pago {
     private String estado;
 
     @ManyToOne
-    @JoinColumn(name = "ordenid", nullable = false)
+    @JoinColumn(name = "orden", nullable = false)
     private Orden orden;
 
     public Pago() {

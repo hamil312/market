@@ -15,9 +15,9 @@ public interface ClienteMapper {
         @Mapping(source = "nombre", target = "name"),
         @Mapping(source = "correo", target = "email"),
         @Mapping(source = "direccion", target = "address"),
-        @Mapping(source = "telefono", target ="phoneNumber")
+        @Mapping(source = "telefono", target ="phoneNumber"),
+        @Mapping(source = "ordenes", target = "orders")
     })
-
     ClientDTO toClientDTO(Cliente cliente);
     List<ClientDTO> toClientsDTO(List<Cliente> clientes);
 

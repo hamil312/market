@@ -25,8 +25,8 @@ public class ProductoImpl implements IProduct  {
         return productoMapper.toProductsDTO(productos);
     }
 
-    /*public ProductDTO getById(Long id){
-        Optional<Producto> producto = productoRepository.findById(id);
+    public ProductDTO getById(Long id){
+        Producto producto = productoRepository.findById(id).get();
         return  productoMapper.toProductDTO(producto);
-    }*/
+    }
 }

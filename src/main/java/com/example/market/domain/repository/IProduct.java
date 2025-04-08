@@ -6,5 +6,5 @@ import com.example.market.domain.dto.ProductDTO;
 
 public interface IProduct {
     public List<ProductDTO> getAllProducts();
-    // public ProductDTO getProductById(Long id);
+    public ProductDTO getById(Long id);
 }

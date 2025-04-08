@@ -1,8 +1,6 @@
 package com.example.market.infraestructure.mapper;
 
-import com.example.market.domain.dto.OrderItemDTO;
 import com.example.market.domain.dto.PayDTO;
-import com.example.market.infraestructure.entity.OrdenItem;
 import com.example.market.infraestructure.entity.Pago;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;

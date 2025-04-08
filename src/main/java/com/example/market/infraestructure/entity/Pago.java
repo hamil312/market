@@ -3,6 +3,7 @@ package com.example.market.infraestructure.entity;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "pagos")
 public class Pago {
 
     @Id

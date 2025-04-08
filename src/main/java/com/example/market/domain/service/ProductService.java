@@ -17,5 +17,19 @@ public class ProductService {
     public List<ProductDTO> getAll() {
         return productImpl.getAllProducts();
     }
-    // public ProductDTO getById(Long id){ return productImpl.getById(id); }
+    public ProductDTO getById(Long id){ 
+        return productImpl.getById(id); 
+    }
+
+    public ProductDTO save(ProductDTO product) { 
+        return productImpl.save(product); 
+    }
+
+    public void delete(Long id) { 
+        productImpl.delete(id); 
+    }
+
+    public ProductDTO update(Long id, ProductDTO product) { 
+        return productImpl.update(id, product);
+    }
 }

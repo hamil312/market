@@ -29,4 +29,23 @@ public class ProductoImpl implements IProduct  {
         Producto producto = productoRepository.findById(id).get();
         return  productoMapper.toProductDTO(producto);
     }
+
+    public ProductDTO save(ProductDTO product) {
+        Producto producto = productoMapper.toProducto(product);
+        return productoMapper.toProductDTO(productoRepository.save(producto));
+    }
+
+    public void delete(Long id) {
+        productoRepository.deleteById(id);
+    }
+
+    public ProductDTO update(Long id, ProductDTO product) {
+        Producto productoToUpdate = productoRepository.findById(id).get();
+        Producto updatedProducto = productoMapper.toProducto(product);
+        productoToUpdate.setNombre(updatedProducto.getNombre());
+        productoToUpdate.setPrecio(updatedProducto.getPrecio());
+        productoToUpdate.setStock(updatedProducto.getStock());
+        productoRepository.save(productoToUpdate);
+        return productoMapper.toProductDTO(productoRepository.save(productoToUpdate));
+    }
 }

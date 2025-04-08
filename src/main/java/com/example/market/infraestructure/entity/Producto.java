@@ -20,7 +20,7 @@ public class Producto {
     private String descripcion;
     private double precio;
     private int stock;
-    @OneToMany(mappedBy = "producto")
+    @OneToMany(mappedBy = "productos")
     private Set<OrdenItem> ordenItems;
 
     public Producto() {

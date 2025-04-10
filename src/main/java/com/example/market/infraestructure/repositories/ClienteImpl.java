@@ -41,12 +41,11 @@ public class ClienteImpl implements IClient {
     public ClientDTO updateClientById(Long id, ClientDTO clientDTO) {
         Cliente cliente =  clienteRepository.findById(id).orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
         Cliente clienteUpdate = clienteMapper.toClient(clientDTO);
-        clienteUpdate.setNombre(cliente.getNombre());
-        clienteUpdate.setCorreo(cliente.getCorreo());
-        clienteUpdate.setDireccion(cliente.getDireccion());
-        clienteUpdate.setTelefono(cliente.getTelefono());
-        clienteRepository.save(clienteUpdate);
-        return clienteMapper.toClientDTO(clienteUpdate);
+        cliente.setNombre(clienteUpdate.getNombre());
+        cliente.setCorreo(clienteUpdate.getCorreo());
+        cliente.setDireccion(clienteUpdate.getDireccion());
+        cliente.setTelefono(clienteUpdate.getTelefono());
+        return clienteMapper.toClientDTO(clienteRepository.save(cliente));
     }
 
     @Override

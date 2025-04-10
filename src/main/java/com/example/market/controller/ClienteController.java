@@ -19,8 +19,8 @@ public class ClienteController {
         return clientService.getAllClients();
     }
 
-    @GetMapping
-    public ClientDTO getClientById(@RequestParam long id){
+    @GetMapping("/{id}")
+    public ClientDTO getClientById(@PathVariable long id){
         return clientService.getClientById(id);
     }
 
@@ -29,13 +29,13 @@ public class ClienteController {
         return clientService.saveClient(clientDTO);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ClientDTO updateClient(@PathVariable("id") Long id, @RequestBody ClientDTO clientDTO){
         return clientService.updateClientById(id, clientDTO);
     }
 
-    @DeleteMapping
-    public void deleteClientById(@RequestParam long id){
+    @DeleteMapping("/{id}")
+    public void deleteClientById(@PathVariable long id){
         clientService.deleteClientById(id);
     }
 }

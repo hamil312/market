@@ -40,12 +40,11 @@ public class ProductoImpl implements IProduct  {
     }
 
     public ProductDTO update(Long id, ProductDTO product) {
-        Producto productoToUpdate = productoRepository.findById(id).get();
+        Producto productoToUpdate = productoRepository.findById(id).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         Producto updatedProducto = productoMapper.toProducto(product);
         productoToUpdate.setNombre(updatedProducto.getNombre());
         productoToUpdate.setPrecio(updatedProducto.getPrecio());
         productoToUpdate.setStock(updatedProducto.getStock());
-        productoRepository.save(productoToUpdate);
         return productoMapper.toProductDTO(productoRepository.save(productoToUpdate));
     }
 }

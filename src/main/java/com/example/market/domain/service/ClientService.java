@@ -1,7 +1,6 @@
 package com.example.market.domain.service;
 
 import com.example.market.domain.dto.ClientDTO;
-import com.example.market.domain.dto.ProductDTO;
 import com.example.market.infraestructure.repositories.ClienteImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

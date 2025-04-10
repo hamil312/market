@@ -6,8 +6,8 @@ import com.example.market.domain.dto.OrderDTO;
 
 public interface IOrder {
     List<OrderDTO> getAllOrders();
-    OrderDTO getOrderById(Long id);
-    void saveOrder(OrderDTO order);
-    void updateOrder(Long id, OrderDTO order);
-    void deleteOrder(Long id);
+    OrderDTO getById(Long id);
+    OrderDTO save(OrderDTO order);
+    OrderDTO update(Long id, OrderDTO order);
+    void delete(Long id);
 }

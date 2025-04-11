@@ -44,4 +44,9 @@ public class OrdenController {
         ordenService.delete(id);
     }
 
+    @GetMapping("/cliente/{idCliente}")
+    public List<OrderDTO> obtenerOrdenesPorCliente(@PathVariable Long idCliente) {
+        return ordenService.getByClientId(idCliente);
+    }
+
 }

@@ -16,7 +16,6 @@ public class Cliente {
     private String correo;
     private String direccion;
     private int telefono;
-
     @OneToMany(mappedBy = "cliente")
     private Set<Orden> ordenes;
 

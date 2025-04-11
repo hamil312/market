@@ -1,6 +1,5 @@
 package com.example.market.domain.dto;
 
-import com.example.market.infraestructure.entity.Orden;
 
 public class PayDTO {
     private Long id;
@@ -8,12 +7,12 @@ public class PayDTO {
     private double amount;
     private String method;
     private String state;
-    private Orden order;
+    private OrderDTO order;
 
     public PayDTO() {
     }
 
-    public PayDTO(int payDate, double amount, String method, String state, Orden order) {
+    public PayDTO(int payDate, double amount, String method, String state, OrderDTO order) {
         this.payDate = payDate;
         this.amount = amount;
         this.method = method;
@@ -61,11 +60,11 @@ public class PayDTO {
         this.state = state;
     }
 
-    public Orden getOrder() {
+    public OrderDTO getOrder() {
         return order;
     }
 
-    public void setOrder(Orden order) {
+    public void setOrder(OrderDTO order) {
         this.order = order;
     }
 }

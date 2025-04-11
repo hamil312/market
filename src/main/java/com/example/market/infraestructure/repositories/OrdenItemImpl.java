@@ -1,6 +1,8 @@
 package com.example.market.infraestructure.repositories;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,7 +30,12 @@ public class OrdenItemImpl implements IOrderItem {
     private ProductoRepository productoRepository;
 
     public List<OrderItemDTO> getAllOrderItems(Long id) {
-        List<OrdenItem> orderItems = ordenItemRepository.findByOrdenId(id);
+        Orden orden = ordenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
+        Set<OrdenItem> ordenItems = orden.getOrdenItems();
+        List<OrdenItem> orderItems = new ArrayList<OrdenItem>();
+        for (OrdenItem ordenItem : ordenItems) {
+            ordenItem.setOrden(orden);
+        }
         return ordenItemMapper.toOrdersItemsDTO(orderItems);
     }
 

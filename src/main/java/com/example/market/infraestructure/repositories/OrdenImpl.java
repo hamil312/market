@@ -29,8 +29,9 @@ public class OrdenImpl implements IOrder {
     }
 
     public OrderDTO save(OrderDTO Order) {
-        Orden Orden = OrdenMapper.toOrden(Order);
-        return OrdenMapper.toOrderDTO(OrdenRepository.save(Orden));
+        Orden orden = OrdenMapper.toOrden(Order);
+        orden.setTotal(0.0);
+        return OrdenMapper.toOrderDTO(OrdenRepository.save(orden));
     }
 
     public void delete(Long id) {
@@ -41,7 +42,6 @@ public class OrdenImpl implements IOrder {
         Orden OrdenToUpdate = OrdenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrado"));
         Orden updatedOrden = OrdenMapper.toOrden(Order);
         OrdenToUpdate.setFecha(updatedOrden.getFecha());
-        OrdenToUpdate.setTotal(updatedOrden.getTotal());
         OrdenToUpdate.setEstado(updatedOrden.getEstado());
         return OrdenMapper.toOrderDTO(OrdenRepository.save(OrdenToUpdate));
     }

@@ -32,10 +32,7 @@ public class OrdenItemImpl implements IOrderItem {
     public List<OrderItemDTO> getAllOrderItems(Long id) {
         Orden orden = ordenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
         Set<OrdenItem> ordenItems = orden.getOrdenItems();
-        List<OrdenItem> orderItems = new ArrayList<OrdenItem>();
-        for (OrdenItem ordenItem : ordenItems) {
-            ordenItem.setOrden(orden);
-        }
+        List<OrdenItem> orderItems = new ArrayList<OrdenItem>(ordenItems);
         return ordenItemMapper.toOrdersItemsDTO(orderItems);
     }
 
@@ -43,27 +40,46 @@ public class OrdenItemImpl implements IOrderItem {
         Orden orden = ordenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
         Producto producto = productoRepository.findById(orderItemDTO.getProduct().getId()).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
         OrdenItem ordenItem = ordenItemMapper.toOrdenItem(orderItemDTO);
+        double total = orden.getTotal();
         ordenItem.setOrden(orden);
         ordenItem.setProducto(producto);
+        ordenItem.setPrecioUnitario(producto.getPrecio());
+        total += ordenItem.getPrecioUnitario() * ordenItem.getCantidad();
+        orden.setTotal(total);
+        ordenRepository.save(orden);
         return ordenItemMapper.toOrderItemDTO(ordenItemRepository.save(ordenItem));
     }
 
     public void deleteOrderItem(Long id, Long orderItemId) {
         Orden orden = ordenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
         OrdenItem ordenItem = ordenItemRepository.findById(orderItemId).orElseThrow(() -> new RuntimeException("Orden Item no encontrado"));
+        double total = orden.getTotal();
         if (!ordenItem.getOrden().getId().equals(orden.getId())) {
             throw new RuntimeException("El orden item no pertenece a la orden especificada");
         }
-        ordenItemRepository.deleteById(id);
+        total -= ordenItem.getPrecioUnitario() * ordenItem.getCantidad();
+        orden.setTotal(total);
+        ordenRepository.save(orden);
+        ordenItemRepository.deleteById(orderItemId);
     }
 
     public OrderItemDTO updateOrderItem(Long id, Long orderItemId, OrderItemDTO orderItemdto) {
-        OrdenItem ordenItemToUpdate = ordenItemRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrado"));
+        Orden orden = ordenRepository.findById(id).orElseThrow(() -> new RuntimeException("Orden no encontrada"));
+        OrdenItem ordenItemToUpdate = ordenItemRepository.findById(orderItemId).orElseThrow(() -> new RuntimeException("Orden no encontrado"));
         OrdenItem updatedOrdenItem = ordenItemMapper.toOrdenItem(orderItemdto);
+        Producto producto = productoRepository.findById(updatedOrdenItem.getProducto().getId()).orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        double total = orden.getTotal();
+        if (!ordenItemToUpdate.getOrden().getId().equals(orden.getId())) {
+            throw new RuntimeException("El orden item no pertenece a la orden especificada");
+        }
+        total -= ordenItemToUpdate.getPrecioUnitario() * ordenItemToUpdate.getCantidad();
         ordenItemToUpdate.setCantidad(updatedOrdenItem.getCantidad());
-        ordenItemToUpdate.setPrecioUnitario(updatedOrdenItem.getPrecioUnitario());
+        ordenItemToUpdate.setPrecioUnitario(producto.getPrecio());
         ordenItemToUpdate.setProducto(updatedOrdenItem.getProducto());
-        ordenItemToUpdate.setOrden(updatedOrdenItem.getOrden());
+        ordenItemToUpdate.setOrden(orden);
+        total += ordenItemToUpdate.getPrecioUnitario() * ordenItemToUpdate.getCantidad();
+        orden.setTotal(total);
+        ordenRepository.save(orden);
         return ordenItemMapper.toOrderItemDTO(ordenItemRepository.save(ordenItemToUpdate));
     }
 }

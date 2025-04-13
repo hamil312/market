@@ -13,8 +13,8 @@ public class OrdenItemService {
     @Autowired
     private OrdenItemImpl ordenItemImpl;
 
-    public List<OrderItemDTO> getAll(Long id) {
-        return ordenItemImpl.getAllOrderItems(id);
+    public List<OrderItemDTO> getAll(Long orderId) {
+        return ordenItemImpl.getAllOrderItems(orderId);
     }
     public OrderItemDTO save(Long orderId, OrderItemDTO order) { 
         return ordenItemImpl.saveOrderItem(orderId, order); 

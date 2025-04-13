@@ -10,29 +10,29 @@ import com.example.market.domain.dto.OrderItemDTO;
 import com.example.market.domain.service.OrdenItemService;
 
 @RestController
-@RequestMapping("/ordenes/{ordenId}/items")
+@RequestMapping("/ordenes")
 public class OrdenItemController {
     
     @Autowired
     private OrdenItemService ordenItemService;
 
-    @GetMapping
-    public List<OrderItemDTO> obtenerOrdenes(@PathVariable Long orderId) {
-        return ordenItemService.getAll(orderId);
+    @GetMapping("/{ordenId}/items")
+    public List<OrderItemDTO> obtenerOrdenes(@PathVariable Long ordenId) {
+        return ordenItemService.getAll(ordenId);
     }
 
-    @PostMapping
-    public OrderItemDTO guardar(@PathVariable("ordenId") Long orderId, @RequestBody OrderItemDTO entity) {
-        return ordenItemService.save(orderId, entity);
+    @PostMapping("/{ordenId}/items")
+    public OrderItemDTO guardar(@PathVariable Long ordenId, @RequestBody OrderItemDTO entity) {
+        return ordenItemService.save(ordenId, entity);
     }
 
-    @PutMapping("/{id}")
-    public OrderItemDTO actualizar(@PathVariable("ordenId") Long orderId, @PathVariable("id") Long id, @RequestBody OrderItemDTO entity) {
-        return ordenItemService.update(orderId,id, entity);
+    @PutMapping("/{ordenId}/items/{id}")
+    public OrderItemDTO actualizar(@PathVariable Long ordenId, @PathVariable Long id, @RequestBody OrderItemDTO entity) {
+        return ordenItemService.update(ordenId,id, entity);
     }
 
-    @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("ordenId") Long orderId, @PathVariable("id") Long id) {
-        ordenItemService.delete(orderId, id);
+    @DeleteMapping("/{ordenId}/items/{id}")
+    public void eliminar(@PathVariable Long ordenId, @PathVariable Long id) {
+        ordenItemService.delete(ordenId, id);
     }
 }

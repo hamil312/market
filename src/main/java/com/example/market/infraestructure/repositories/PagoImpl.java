@@ -1,12 +1,9 @@
 package com.example.market.infraestructure.repositories;
 
-import com.example.market.domain.dto.ClientDTO;
 import com.example.market.domain.dto.PayDTO;
 import com.example.market.domain.repository.IPay;
 import com.example.market.infraestructure.crud.PagoRepository;
-import com.example.market.infraestructure.entity.Cliente;
 import com.example.market.infraestructure.entity.Pago;
-import com.example.market.infraestructure.mapper.ClienteMapper;
 import com.example.market.infraestructure.mapper.PagoMapper;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +18,6 @@ public class PagoImpl implements IPay {
     private PagoRepository  pagoRepository;
     @Autowired
     private PagoMapper pagoMapper;
-    @Autowired
-    private ClienteMapper clienteMapper;
 
     @Override
     public List<PayDTO> getAllPayments() {

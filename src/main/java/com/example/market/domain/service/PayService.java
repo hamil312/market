@@ -1,9 +1,7 @@
 package com.example.market.domain.service;
 
 import com.example.market.domain.dto.PayDTO;
-import com.example.market.infraestructure.entity.Pago;
 import com.example.market.infraestructure.repositories.PagoImpl;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

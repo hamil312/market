@@ -19,7 +19,7 @@ public class PagoController {
         return payService.getAllPayments();
     }
 
-    @GetMapping("/pagosPorId/{id}")
+    @GetMapping("/{id}")
     public  PayDTO getPaymentById(@PathVariable long id){
         return payService.getPaymentById(id);
     }
@@ -39,7 +39,7 @@ public class PagoController {
         payService.deletePayment(id);
     }
 
-    @GetMapping("/pagosPorOrderId/{orderId}")
+    @GetMapping("/orden/{orderId}")
     public List<PayDTO> getAllPaymentsByOrderId(@PathVariable Long orderId) {
         return payService.getAllPaymentsByOrderId(orderId);
     }

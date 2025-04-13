@@ -19,6 +19,8 @@ public class Orden {
     private Cliente cliente;
     @OneToMany(mappedBy = "orden")
     private Set<OrdenItem> ordenItems;
+    @OneToMany(mappedBy = "orden")
+    private Set<Pago> pagos;
 
     public Orden() {
 
@@ -70,6 +72,11 @@ public class Orden {
         this.ordenItems = ordenItems;
     }
 
-    
+    public Set<Pago> getPagos() {
+        return pagos;
+    }
 
+    public void setPagos(Set<Pago> pagos) {
+        this.pagos = pagos;
+    }
 }

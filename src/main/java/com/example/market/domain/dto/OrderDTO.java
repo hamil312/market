@@ -10,6 +10,7 @@ public class OrderDTO {
     private String status;
     private ClientDTO client;
     private Set<OrderItemDTO> orderItems;
+    private Set<PayDTO> payments;
 
     public OrderDTO() {
         
@@ -70,6 +71,11 @@ public class OrderDTO {
         this.orderItems = orderItems;
     }
 
-    
+    public Set<PayDTO> getPayments() {
+        return payments;
+    }
 
+    public void setPayments(Set<PayDTO> payments) {
+        this.payments = payments;
+    }
 }

@@ -9,7 +9,7 @@ public class Pago {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int fechaPago;
+    private String fechaPago;
     private double monto;
     private String metodo;
     private String estado;
@@ -21,7 +21,7 @@ public class Pago {
     public Pago() {
     }
 
-    public Pago(int fechaPago, double monto, String metodo, String estado, Orden orden) {
+    public Pago(String fechaPago, double monto, String metodo, String estado, Orden orden) {
         this.fechaPago = fechaPago;
         this.monto = monto;
         this.metodo = metodo;
@@ -37,11 +37,11 @@ public class Pago {
         return id;
     }
 
-    public int getFechaPago() {
+    public String getFechaPago() {
         return fechaPago;
     }
 
-    public void setFechaPago(int fechaPago) {
+    public void setFechaPago(String fechaPago) {
         this.fechaPago = fechaPago;
     }
 

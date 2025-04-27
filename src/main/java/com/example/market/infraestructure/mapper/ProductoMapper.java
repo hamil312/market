@@ -27,5 +27,5 @@ public interface ProductoMapper {
 
     @InheritInverseConfiguration
     Producto toProducto(ProductDTO productDTO);
-    List<Producto> toProducts(List<ProductDTO> productsDTO);
+    List<Producto> toProductos(List<ProductDTO> productsDTO);
 }

@@ -57,12 +57,7 @@ public class Orden {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public Cliente getCliente() {
-        return cliente;
-    }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
+   
 
     public Set<OrdenItem> getOrdenItems() {
         return ordenItems;
@@ -78,5 +73,13 @@ public class Orden {
 
     public void setPagos(Set<Pago> pagos) {
         this.pagos = pagos;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }

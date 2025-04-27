@@ -9,17 +9,6 @@ public class PayDTO {
     private String state;
     private OrderDTO order;
 
-    public PayDTO() {
-    }
-
-    public PayDTO(String payDate, double amount, String method, String state, OrderDTO order) {
-        this.payDate = payDate;
-        this.amount = amount;
-        this.method = method;
-        this.state = state;
-        this.order = order;
-    }
-
     public Long getId() {
         return id;
     }

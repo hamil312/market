@@ -8,16 +8,6 @@ public class OrderItemDTO {
     private ProductDTO product;
     private OrderDTO order;
 
-    public OrderItemDTO(int quantity, double unitPrice, ProductDTO product, OrderDTO order) {
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
-        this.product = product;
-        this.order = order;
-    }
-
-    public OrderItemDTO() {
-    }
-
     public Long getId() {
         return id;
     }

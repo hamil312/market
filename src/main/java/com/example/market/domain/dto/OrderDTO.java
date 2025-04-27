@@ -12,17 +12,6 @@ public class OrderDTO {
     private Set<OrderItemDTO> orderItems;
     private Set<PayDTO> payments;
 
-    public OrderDTO() {
-        
-    }
-
-    public OrderDTO(String date, double total, String status, ClientDTO client) {
-        this.date = date;
-        this.total = total;
-        this.status = status;
-        this.client = client;
-    }
-
     public Long getId() {
         return id;
     }
@@ -55,14 +44,6 @@ public class OrderDTO {
         this.status = status;
     }
 
-    public ClientDTO getClient() {
-        return client;
-    }
-
-    public void setClient(ClientDTO client) {
-        this.client = client;
-    }
-
     public Set<OrderItemDTO> getOrderItems() {
         return orderItems;
     }
@@ -77,5 +58,13 @@ public class OrderDTO {
 
     public void setPayments(Set<PayDTO> payments) {
         this.payments = payments;
+    }
+
+    public ClientDTO getClient() {
+        return client;
+    }
+
+    public void setClient(ClientDTO client) {
+        this.client = client;
     }
 }

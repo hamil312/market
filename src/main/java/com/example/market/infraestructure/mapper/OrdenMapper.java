@@ -10,7 +10,7 @@ import org.mapstruct.Mappings;
 import com.example.market.domain.dto.OrderDTO;
 import com.example.market.infraestructure.entity.Orden;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {OrdenItemMapper.class, PagoMapper.class})
 public interface OrdenMapper {
 
     @Mappings({
@@ -27,5 +27,5 @@ public interface OrdenMapper {
     
     @InheritInverseConfiguration
     Orden toOrden(OrderDTO ordenDTO);
-    List<Orden> toProducts(List<OrderDTO> ordenesDTO);
+    List<Orden> toOrdenes(List<OrderDTO> ordenesDTO);
 }

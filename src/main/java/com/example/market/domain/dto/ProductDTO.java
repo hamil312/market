@@ -11,17 +11,6 @@ public class ProductDTO {
     private int amount;
     private Set<OrderItemDTO> orderItems;
 
-    public ProductDTO() {
-        
-    }
-
-    public ProductDTO(String name, String description, double price, int amount) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.amount = amount;
-    }
-
     public Long getId() {
         return id;
     }

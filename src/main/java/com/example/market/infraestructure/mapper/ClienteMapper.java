@@ -10,7 +10,7 @@ import org.mapstruct.Mappings;
 import com.example.market.domain.dto.ClientDTO;
 import com.example.market.infraestructure.entity.Cliente;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {OrdenMapper.class})
 public interface ClienteMapper {
 
     @Mappings({

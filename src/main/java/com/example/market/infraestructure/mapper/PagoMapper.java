@@ -26,5 +26,5 @@ public interface PagoMapper {
 
     @InheritInverseConfiguration
     Pago toPago(PayDTO payDTO);
-    List<Pago> toPayments(List<PayDTO> paymentsDTO);
+    List<Pago> toPagos(List<PayDTO> paymentsDTO);
 }

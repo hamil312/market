@@ -10,16 +10,6 @@ public class ClientDTO {
     private int phoneNumber;
     private Set<OrderDTO> orders;
 
-    public ClientDTO() {
-    }
-
-    public ClientDTO(String name, String email, String address, int phoneNumber) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-    }
-
     public Long getId() {
         return id;
     }

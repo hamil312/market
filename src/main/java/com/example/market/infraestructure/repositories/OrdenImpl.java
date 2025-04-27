@@ -20,7 +20,8 @@ public class OrdenImpl implements IOrder {
 
     public List<OrderDTO> getAllOrders() {
         List<Orden> Ordens = OrdenRepository.findAll();
-        return OrdenMapper.toOrdersDTO(Ordens);
+        List<OrderDTO> resultLst= OrdenMapper.toOrdersDTO(Ordens);
+        return resultLst;
     }
 
     public OrderDTO getById(Long id){
